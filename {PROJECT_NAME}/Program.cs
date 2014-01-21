@@ -1,3 +1,5 @@
+#if PLATFORM_WINDOWS || PLATFORM_MACOS || PLATFORM_LINUX
+
 namespace {PROJECT_NAME}
 {
     using Ninject;
@@ -20,3 +22,5 @@ namespace {PROJECT_NAME}
         }
     }
 }
+
+#endif
