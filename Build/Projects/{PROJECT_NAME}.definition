@@ -18,6 +18,11 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Solid.cs" />
     <Compile Include="Entities\Spawn.cs" />
+    <Compile Include="Events\DesktopEventBinder.cs" />
+    <Compile Include="Events\JumpAction.cs" />
+    <Compile Include="Events\MoveLeftAction.cs" />
+    <Compile Include="Events\MoveRightAction.cs" />
+    <Compile Include="Events\TeleportAction.cs" />
     <Compile Include="IEntityFactory.cs" />
     <Compile Include="{PROJECT_XML_NAME}Activity.cs" />
     <Compile Include="{PROJECT_XML_NAME}Game.cs" />
