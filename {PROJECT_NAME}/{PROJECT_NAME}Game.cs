@@ -9,6 +9,7 @@ namespace {PROJECT_NAME}
         public {PROJECT_NAME}Game(StandardKernel kernel)
             : base(kernel)
         {
+            this.IsMouseVisible = true;
         }
     }
 }
