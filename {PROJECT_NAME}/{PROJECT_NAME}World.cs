@@ -13,7 +13,7 @@ namespace {PROJECT_NAME}
         private IProfiler m_Profiler;
         private ILevelManager m_LevelManager;
 
-        public List<IEntity> Entities { get; private set; }
+        public IList<IEntity> Entities { get; private set; }
 
         public {PROJECT_NAME}World(
             IPlatforming platforming,
