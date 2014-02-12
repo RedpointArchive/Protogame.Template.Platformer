@@ -25,7 +25,7 @@ namespace {PROJECT_NAME}
             this.m_DefaultFont = this.m_AssetManager.Get<FontAsset>("font.Default");
         }
 
-        public List<IEntity> Entities { get; private set; }
+        public IList<IEntity> Entities { get; private set; }
 
         public void Dispose()
         {
