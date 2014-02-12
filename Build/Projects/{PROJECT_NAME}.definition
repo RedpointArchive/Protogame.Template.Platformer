@@ -14,6 +14,7 @@
     <Reference Include="{PROJECT_XML_NAME}.Content" />
   </References>
   <Files>
+    <Compile Include="DefaultEntityFactory.cs" />
     <Compile Include="Entities\Dirt.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Solid.cs" />
