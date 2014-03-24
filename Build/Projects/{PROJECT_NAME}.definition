@@ -8,7 +8,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="protobuf-net" />
     <Reference Include="Ninject" />
-    <Reference Include="MonoGame" />
+    <Reference Include="MonoGame.Framework" />
     <Reference Include="Protogame" />
     <Reference Include="Protogame.ThirdParty" />
     <Reference Include="{PROJECT_XML_NAME}.Content" />
