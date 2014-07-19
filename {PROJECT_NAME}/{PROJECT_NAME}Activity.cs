@@ -24,6 +24,8 @@ namespace {PROJECT_NAME}
     [Activity(
         Label = "{PROJECT_NAME}",
         MainLauncher = true,
+        AlwaysRetainTaskState = true,
+        LaunchMode = Android.Content.PM.LaunchMode.SingleInstance,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden,
         ScreenOrientation = ScreenOrientation.Landscape)]
     public class {PROJECT_NAME}Activity : AndroidGameActivity
@@ -38,9 +40,8 @@ namespace {PROJECT_NAME}
             AssetManagerClient.AcceptArgumentsAndSetup<GameAssetManagerProvider>(kernel, null);
 
             // Create our OpenGL view, and display it
-            {PROJECT_NAME}Game.Activity = this;
             var g = new {PROJECT_NAME}Game(kernel);
-            SetContentView(g.AndroidGameWindow);
+            SetContentView(g.AndroidGameView);
             g.Run();
         }
     }
