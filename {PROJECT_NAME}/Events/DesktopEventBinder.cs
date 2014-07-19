@@ -13,7 +13,7 @@ namespace {PROJECT_NAME}
             this.Bind<KeyHeldEvent>(x => x.Key == Keys.Right).On<Player>().To<MoveRightAction>();
             this.Bind<KeyPressEvent>(x => x.Key == Keys.Up).On<Player>().To<JumpAction>();
 
-            this.Bind<TouchPressEvent(x => true).On<Player>().To<TeleportAction>();
+            this.Bind<TouchPressEvent>(x => true).On<Player>().To<TeleportAction>();
         }
     }
 }
