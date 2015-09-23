@@ -1,4 +1,4 @@
-namespace {PROJECT_NAME}
+namespace {PROJECT_SAFE_NAME}
 {
     using System.Collections.Generic;
 
@@ -6,7 +6,7 @@ namespace {PROJECT_NAME}
 
     using Protogame;
 
-    public class {PROJECT_NAME}World : IWorld
+    public class {PROJECT_SAFE_NAME}World : IWorld
     {
         private readonly I2DRenderUtilities m_2DRenderUtilities;
 
@@ -14,7 +14,7 @@ namespace {PROJECT_NAME}
 
         private readonly FontAsset m_DefaultFont;
         
-        public {PROJECT_NAME}World(
+        public {PROJECT_SAFE_NAME}World(
             I2DRenderUtilities twoDRenderUtilities,
             IAssetManagerProvider assetManagerProvider)
         {

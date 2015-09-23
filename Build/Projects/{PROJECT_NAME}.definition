@@ -15,9 +15,9 @@
   </References>
   <Files>
     <Compile Include="Program.cs" />
-    <Compile Include="{PROJECT_XML_NAME}Game.cs" />
-    <Compile Include="{PROJECT_XML_NAME}World.cs" />
-    <Compile Include="{PROJECT_XML_NAME}Activity.cs" />
+    <Compile Include="{PROJECT_SAFE_XML_NAME}Game.cs" />
+    <Compile Include="{PROJECT_SAFE_XML_NAME}World.cs" />
+    <Compile Include="{PROJECT_SAFE_XML_NAME}Activity.cs" />
     <None Include="Properties/AndroidManifest.xml" />
   </Files>
 </Project>

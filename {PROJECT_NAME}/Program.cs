@@ -1,6 +1,6 @@
 #if PLATFORM_WINDOWS || PLATFORM_MACOS || PLATFORM_LINUX || PLATFORM_WEB
 
-namespace {PROJECT_NAME}
+namespace {PROJECT_SAFE_NAME}
 {
     using Ninject;
 
@@ -15,7 +15,7 @@ namespace {PROJECT_NAME}
             kernel.Load<ProtogameAssetIoCModule>();
             AssetManagerClient.AcceptArgumentsAndSetup<GameAssetManagerProvider>(kernel, args);
 
-            using (var game = new {PROJECT_NAME}Game(kernel))
+            using (var game = new {PROJECT_SAFE_NAME}Game(kernel))
             {
                 game.Run();
             }
