@@ -1,4 +1,4 @@
-namespace {PROJECT_NAME}
+namespace {PROJECT_SAFE_NAME}
 {
     using System.Collections.Generic;
 
@@ -6,7 +6,7 @@ namespace {PROJECT_NAME}
 
     using Protogame;
 
-    public class {PROJECT_NAME}World : IWorld
+    public class {PROJECT_SAFE_NAME}World : IWorld
     {
         private I2DRenderUtilities m_RenderUtilities;
         private IAssetManager m_AssetManager;
@@ -15,7 +15,7 @@ namespace {PROJECT_NAME}
 
         public IList<IEntity> Entities { get; private set; }
 
-        public {PROJECT_NAME}World(
+        public {PROJECT_SAFE_NAME}World(
             IPlatforming platforming,
             I2DRenderUtilities renderUtilities,
             IAssetManagerProvider assetManagerProvider,

@@ -1,4 +1,4 @@
-namespace {PROJECT_NAME}
+namespace {PROJECT_SAFE_NAME}
 {
     using Protogame;
 

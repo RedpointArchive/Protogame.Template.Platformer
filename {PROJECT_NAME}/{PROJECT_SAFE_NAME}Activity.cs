@@ -1,6 +1,6 @@
 #if PLATFORM_ANDROID || PLATFORM_OUYA
 
-namespace {PROJECT_NAME}
+namespace {PROJECT_SAFE_NAME}
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace {PROJECT_NAME}
         LaunchMode = Android.Content.PM.LaunchMode.SingleInstance,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden,
         ScreenOrientation = ScreenOrientation.Landscape)]
-    public class {PROJECT_NAME}Activity : AndroidGameActivity
+    public class {PROJECT_SAFE_NAME}Activity : AndroidGameActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -44,7 +44,7 @@ namespace {PROJECT_NAME}
             AssetManagerClient.AcceptArgumentsAndSetup<GameAssetManagerProvider>(kernel, null);
 
             // Create our OpenGL view, and display it
-            var g = new {PROJECT_NAME}Game(kernel);
+            var g = new {PROJECT_SAFE_NAME}Game(kernel);
             SetContentView(g.AndroidGameView);
             g.Run();
         }
