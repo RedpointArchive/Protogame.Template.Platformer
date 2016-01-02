@@ -7,15 +7,13 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="protobuf-net" />
-    <Reference Include="Ninject" />
-    <Reference Include="Ninject.Extensions.Factory" />
+    <Reference Include="Protoinject" />
     <Reference Include="MonoGame.Framework" />
     <Reference Include="Protogame" />
     <Reference Include="Protogame.ThirdParty" />
     <Reference Include="{PROJECT_XML_NAME}.Content" />
   </References>
   <Files>
-    <Compile Include="DefaultEntityFactory.cs" />
     <Compile Include="Entities\Dirt.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Solid.cs" />
@@ -28,7 +26,7 @@
     <Compile Include="IEntityFactory.cs" />
     <Compile Include="{PROJECT_SAFE_XML_NAME}Activity.cs" />
     <Compile Include="{PROJECT_SAFE_XML_NAME}Game.cs" />
-    <Compile Include="{PROJECT_SAFE_XML_NAME}IoCModule.cs" />
+    <Compile Include="{PROJECT_SAFE_XML_NAME}Module.cs" />
     <Compile Include="{PROJECT_SAFE_XML_NAME}World.cs" />
     <Compile Include="Program.cs" />
     <None Include="Properties\AndroidManifest.xml" />

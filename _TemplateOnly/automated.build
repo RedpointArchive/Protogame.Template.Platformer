@@ -1,0 +1,8 @@
+#version 1
+
+pack . Template.tar.lzma Template
+if host Linux
+  if file-exists /srv/api_key.txt
+    push /srv/api_key.txt Template.tar.lzma http://protobuild.org/Protogame/Template.Platformer $GIT_COMMIT Template master --ignore-on-existing
+  endif
+endif

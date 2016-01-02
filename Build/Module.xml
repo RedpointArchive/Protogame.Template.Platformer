@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ModuleInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module>
   <Name>{PROJECT_XML_NAME}</Name>
   <DefaultAction>resync</DefaultAction>
   <GenerateNuGetRepositories>true</GenerateNuGetRepositories>
-  <DisableSynchronisation xsi:nil="true" />
-  <ModuleAssemblies />
   <Packages>
-    <PackageRef>
-      <Uri>http://protobuild.org/hach-que/Protogame</Uri>
-      <GitRef>master</GitRef>
-      <Folder>Protogame</Folder>
-    </PackageRef>
+    <Package Uri="http://protobuild.org/hach-que/Protogame" Folder="Protogame" GitRef="master" />
   </Packages>
-</ModuleInfo>
+</Module>
