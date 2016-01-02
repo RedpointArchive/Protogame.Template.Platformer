@@ -4,18 +4,18 @@ namespace {PROJECT_NAME}
 
     using Protogame;
 
-    public class {PROJECT_NAME}Module : NinjectModule
+    public class {PROJECT_NAME}Module : IProtoinjectModule
     {
-        public override void Load()
+        public void Load(IKernel kernel)
         {
-            this.Bind<IEntityFactory>().ToFactory();
+            kernel.Bind<IEntityFactory>().ToFactory();
 
-            this.Bind<ISolidEntity>().To<Solid>();
-            this.Bind<ITileEntity>().To<Dirt>().Named("Dirt");
-            this.Bind<IEntity>().To<Spawn>().Named("Spawn");
+            kernel.Bind<ISolidEntity>().To<Solid>();
+            kernel.Bind<ITileEntity>().To<Dirt>().Named("Dirt");
+            kernel.Bind<IEntity>().To<Spawn>().Named("Spawn");
 
             // TODO: Define an event binder suitable for mapping mobile input to the game.
-            this.Bind<IEventBinder<IGameContext>>().To<DesktopEventBinder>();
+            kernel.Bind<IEventBinder<IGameContext>>().To<DesktopEventBinder>();
         }
     }
 }
