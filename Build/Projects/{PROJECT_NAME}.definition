@@ -29,6 +29,11 @@
     <Compile Include="{PROJECT_SAFE_XML_NAME}GameConfiguration.cs" />
     <Compile Include="{PROJECT_SAFE_XML_NAME}Module.cs" />
     <Compile Include="{PROJECT_SAFE_XML_NAME}World.cs" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <Content Include="Properties\AndroidManifest.xml">
+      <Platforms>Android,Ouya</Platforms>
+    </Content>
+    <None Include="Info.plist">
+      <Platforms>iOS,MacOS</Platforms>
+    </None>
   </Files>
 </Project>
