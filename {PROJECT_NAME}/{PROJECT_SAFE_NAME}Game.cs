@@ -6,7 +6,7 @@ namespace {PROJECT_SAFE_NAME}
 
     public class {PROJECT_SAFE_NAME}Game : CoreGame<{PROJECT_SAFE_NAME}World>
     {
-        public {PROJECT_SAFE_NAME}Game(StandardKernel kernel)
+        public {PROJECT_SAFE_NAME}Game(IKernel kernel)
             : base(kernel)
         {
             this.IsMouseVisible = true;
