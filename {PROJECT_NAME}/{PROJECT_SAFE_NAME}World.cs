@@ -38,10 +38,6 @@ namespace {PROJECT_SAFE_NAME}
 
         public void RenderBelow(IGameContext gameContext, IRenderContext renderContext)
         {
-            using (this.m_Profiler.Measure("resize_window"))
-            {
-                gameContext.ResizeWindow(800, 600);
-            }
             using (this.m_Profiler.Measure("clear"))
             {
                 gameContext.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -72,6 +68,10 @@ namespace {PROJECT_SAFE_NAME}
 
         public void Update(IGameContext gameContext, IUpdateContext updateContext)
         {
+            using (this.m_Profiler.Measure("resize_window"))
+            {
+                gameContext.ResizeWindow(800, 600);
+            }
         }
     }
 }
