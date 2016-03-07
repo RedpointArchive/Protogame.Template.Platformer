@@ -4,6 +4,8 @@ namespace {PROJECT_SAFE_NAME}
 
     using Microsoft.Xna.Framework;
 
+    using Protoinject;
+
     using Protogame;
 
     public class {PROJECT_SAFE_NAME}World : IWorld
@@ -16,6 +18,8 @@ namespace {PROJECT_SAFE_NAME}
         public IList<IEntity> Entities { get; private set; }
 
         public {PROJECT_SAFE_NAME}World(
+            INode worldNode,
+            IHierarchy hierarchy,
             IPlatforming platforming,
             I2DRenderUtilities renderUtilities,
             IAssetManagerProvider assetManagerProvider,

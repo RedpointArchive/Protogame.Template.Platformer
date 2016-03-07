@@ -6,10 +6,13 @@ namespace {PROJECT_SAFE_NAME}
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
 
+    using Protoinject;
+
     using Protogame;
 
     public class Player : Entity
     {
+        private readonly IHierarchy _hierarchy;
         private IPlatforming m_Platforming;
         private IAssetManager m_AssetManager;
         private I2DRenderUtilities m_RenderUtilities;
@@ -19,11 +22,13 @@ namespace {PROJECT_SAFE_NAME}
         private IAudioHandle m_JumpHandle;
 
         public Player(
+            IHierarchy hierarchy,
             IPlatforming platforming,
             IAssetManagerProvider assetManagerProvider,
             I2DRenderUtilities renderUtilities,
             IAudioUtilities audioUtilities)
         {
+            _hierarchy = hierarchy;
             this.m_Platforming = platforming;
             this.m_AssetManager = assetManagerProvider.GetAssetManager();
             this.m_RenderUtilities = renderUtilities;
@@ -42,14 +47,13 @@ namespace {PROJECT_SAFE_NAME}
         {
             return this.m_Platforming.IsOnGround(
                 this,
-                gameContext.World.Entities.OfType<IBoundingBox>(),
+                gameContext.World.GetEntitiesForWorld(_hierarchy).OfType<IBoundingBox>(),
                 x => x is Solid);
         }
 
         public void Teleport(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
             this.XSpeed = 0;
             this.YSpeed = 0;
             this.m_JumpHandle.Play();
@@ -57,12 +61,12 @@ namespace {PROJECT_SAFE_NAME}
 
         public void MoveLeft(IGameContext gameContext)
         {
-            this.m_Platforming.ApplyMovement(this, -4, 0, gameContext.World.Entities.OfType<IBoundingBox>(), x => x is Solid);
+            this.m_Platforming.ApplyMovement(this, -4, 0, gameContext.World.GetEntitiesForWorld(_hierarchy).OfType<IBoundingBox>(), x => x is Solid);
         }
 
         public void MoveRight(IGameContext gameContext)
         {
-            this.m_Platforming.ApplyMovement(this, 4, 0, gameContext.World.Entities.OfType<IBoundingBox>(), x => x is Solid);
+            this.m_Platforming.ApplyMovement(this, 4, 0, gameContext.World.GetEntitiesForWorld(_hierarchy).OfType<IBoundingBox>(), x => x is Solid);
         }
 
         public void Jump(IGameContext gameContext)
@@ -85,7 +89,7 @@ namespace {PROJECT_SAFE_NAME}
             else if (this.YSpeed > 0)
             {
                 this.YSpeed = 0;
-                this.m_Platforming.ApplyActionUntil(this, a => a.Y += 1, a => this.OnGround(gameContext), 12);
+                this.m_Platforming.ApplyActionUntil(this, a => a.LocalMatrix *= Matrix.CreateTranslation(0, 1, 0), a => this.OnGround(gameContext), 12);
             }
 
             this.m_Platforming.ClampSpeed(this, null, 12);
@@ -97,7 +101,7 @@ namespace {PROJECT_SAFE_NAME}
 
             this.m_RenderUtilities.RenderTexture(
                 renderContext,
-                new Vector2(this.X, this.Y),
+                new Vector2(this.LocalMatrix.Translation.X, this.LocalMatrix.Translation.Y),
                 this.m_Texture);
         }
     }

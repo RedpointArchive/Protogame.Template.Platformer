@@ -1,6 +1,8 @@
 namespace {PROJECT_SAFE_NAME}
 {
     using System;
+    
+    using Microsoft.Xna.Framework;
 
     using Protogame;
 
@@ -16,8 +18,7 @@ namespace {PROJECT_SAFE_NAME}
         {
             this.m_TileUtilities = tileUtilities;
 
-            this.X = x;
-            this.Y = y;
+            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
             this.TX = tx;
             this.TY = ty;
 

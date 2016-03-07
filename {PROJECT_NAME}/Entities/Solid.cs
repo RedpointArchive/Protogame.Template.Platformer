@@ -16,8 +16,7 @@ namespace {PROJECT_SAFE_NAME}
         public Solid(I2DRenderUtilities renderUtilities, float x, float y, float width, float height)
         {
             this.m_RenderUtilities = renderUtilities;
-            this.X = x;
-            this.Y = y;
+            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
             this.Width = width;
             this.Height = height;
         }

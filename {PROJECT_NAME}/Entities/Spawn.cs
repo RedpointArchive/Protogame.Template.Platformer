@@ -2,16 +2,22 @@ namespace {PROJECT_SAFE_NAME}
 {
     using System;
     using System.Collections.Generic;
-
+    
+    using Microsoft.Xna.Framework;
+    
+    using Protoinject;
+    
     using Protogame;
 
-    public class Spawn : IEntity
+    public class Spawn : Entity
     {
+        private readonly IHierarchy _hierarchy;
         private readonly IEntityFactory m_EntityFactory;
 
         private bool m_Spawned = false;
 
         public Spawn(
+            IHierarchy hierarchy,
             IEntityFactory entityFactory,
             string name,
             int id,
@@ -19,35 +25,13 @@ namespace {PROJECT_SAFE_NAME}
             int y, 
             Dictionary<string, string> attributes)
         {
+            _hierarchy = hierarchy;
             this.m_EntityFactory = entityFactory;
 
-            this.X = x;
-            this.Y = y;
+            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
         }
-
-        public float X
-        {
-            get;
-            set;
-        }
-
-        public float Y
-        {
-            get;
-            set;
-        }
-
-        public float Z
-        {
-            get;
-            set;
-        }
-
-        public void Render(IGameContext gameContext, IRenderContext renderContext)
-        {
-        }
-
-        public void Update(IGameContext gameContext, IUpdateContext updateContext)
+        
+        public override void Update(IGameContext gameContext, IUpdateContext updateContext)
         {
             if (this.m_Spawned)
             {
@@ -55,9 +39,10 @@ namespace {PROJECT_SAFE_NAME}
             }
 
             var player = this.m_EntityFactory.CreatePlayer();
-            player.X = this.X;
-            player.Y = this.Y;
-            gameContext.World.Entities.Add(player);
+            player.LocalMatrix = LocalMatrix;
+            _hierarchy.AddChildNode(
+                _hierarchy.Lookup(gameContext.World),
+                _hierarchy.CreateNodeForObject(player));
 
             this.m_Spawned = true;
         }
