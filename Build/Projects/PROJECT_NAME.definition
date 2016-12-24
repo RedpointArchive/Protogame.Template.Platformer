@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="{PROJECT_XML_NAME}" Path="{PROJECT_XML_NAME}" Type="App">
+<Project Name="PROJECT_NAME" Path="PROJECT_NAME" Type="App">
   <References>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -12,7 +12,7 @@
     <Reference Include="Protogame" />
     <Reference Include="Protogame.ThirdParty" />
     <Reference Include="Protogame.EntryPoint" />
-    <Reference Include="{PROJECT_XML_NAME}.Content" />
+    <Reference Include="PROJECT_NAME.Content" />
   </References>
   <Files>
     <Compile Include="Entities\Dirt.cs" />
@@ -25,10 +25,10 @@
     <Compile Include="Events\MoveRightAction.cs" />
     <Compile Include="Events\TeleportAction.cs" />
     <Compile Include="IEntityFactory.cs" />
-    <Compile Include="{PROJECT_SAFE_XML_NAME}Game.cs" />
-    <Compile Include="{PROJECT_SAFE_XML_NAME}GameConfiguration.cs" />
-    <Compile Include="{PROJECT_SAFE_XML_NAME}Module.cs" />
-    <Compile Include="{PROJECT_SAFE_XML_NAME}World.cs" />
+    <Compile Include="PROJECT_SAFE_NAMEGame.cs" />
+    <Compile Include="PROJECT_SAFE_NAMEGameConfiguration.cs" />
+    <Compile Include="PROJECT_SAFE_NAMEModule.cs" />
+    <Compile Include="PROJECT_SAFE_NAMEWorld.cs" />
     <Content Include="Properties\AndroidManifest.xml">
       <Platforms>Android,Ouya</Platforms>
     </Content>
