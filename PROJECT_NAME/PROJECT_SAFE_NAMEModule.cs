@@ -1,10 +1,10 @@
-namespace {PROJECT_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using Protoinject;
 
     using Protogame;
 
-    public class {PROJECT_NAME}Module : IProtoinjectModule
+    public class PROJECT_SAFE_NAMEModule : IProtoinjectModule
     {
         public void Load(IKernel kernel)
         {

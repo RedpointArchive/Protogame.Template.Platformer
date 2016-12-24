@@ -1,4 +1,4 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using Microsoft.Xna.Framework;
 
@@ -16,7 +16,7 @@ namespace {PROJECT_SAFE_NAME}
         public Solid(I2DRenderUtilities renderUtilities, float x, float y, float width, float height)
         {
             this.m_RenderUtilities = renderUtilities;
-            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
+            this.Transform.LocalPosition = new Vector3(x, y, 0);
             this.Width = width;
             this.Height = height;
         }

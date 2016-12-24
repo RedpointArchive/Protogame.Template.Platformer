@@ -1,4 +1,4 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using System;
     
@@ -18,7 +18,7 @@ namespace {PROJECT_SAFE_NAME}
         {
             this.m_TileUtilities = tileUtilities;
 
-            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
+            this.Transform.LocalPosition = new Vector3(x, y, 0);
             this.TX = tx;
             this.TY = ty;
 

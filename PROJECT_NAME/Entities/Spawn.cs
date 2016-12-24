@@ -1,4 +1,4 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace {PROJECT_SAFE_NAME}
             _hierarchy = hierarchy;
             this.m_EntityFactory = entityFactory;
 
-            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
+            this.Transform.LocalPosition = new Vector3(x, y, 0);
         }
         
         public override void Update(IGameContext gameContext, IUpdateContext updateContext)
@@ -39,10 +39,10 @@ namespace {PROJECT_SAFE_NAME}
             }
 
             var player = this.m_EntityFactory.CreatePlayer();
-            player.LocalMatrix = LocalMatrix;
-            _hierarchy.AddChildNode(
+            player.Transform.Assign(this.Transform);
+            _hierarchy.MoveNode(
                 _hierarchy.Lookup(gameContext.World),
-                _hierarchy.CreateNodeForObject(player));
+                _hierarchy.Lookup(player));
 
             this.m_Spawned = true;
         }

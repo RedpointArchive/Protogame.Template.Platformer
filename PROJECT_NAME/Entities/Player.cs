@@ -1,4 +1,4 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using System;
     using System.Linq;
@@ -53,7 +53,7 @@ namespace {PROJECT_SAFE_NAME}
 
         public void Teleport(int x, int y)
         {
-            this.LocalMatrix = Matrix.CreateTranslation(x, y, 0);
+            this.Transform.LocalPosition = new Vector3(x, y, 0);
             this.XSpeed = 0;
             this.YSpeed = 0;
             this.m_JumpHandle.Play();
@@ -89,7 +89,7 @@ namespace {PROJECT_SAFE_NAME}
             else if (this.YSpeed > 0)
             {
                 this.YSpeed = 0;
-                this.m_Platforming.ApplyActionUntil(this, a => a.LocalMatrix *= Matrix.CreateTranslation(0, 1, 0), a => this.OnGround(gameContext), 12);
+                this.m_Platforming.ApplyActionUntil(this, a => a.Transform.LocalPosition += new Vector3(0, 1, 0), a => this.OnGround(gameContext), 12);
             }
 
             this.m_Platforming.ClampSpeed(this, null, 12);
@@ -101,7 +101,7 @@ namespace {PROJECT_SAFE_NAME}
 
             this.m_RenderUtilities.RenderTexture(
                 renderContext,
-                new Vector2(this.LocalMatrix.Translation.X, this.LocalMatrix.Translation.Y),
+                new Vector2(this.FinalTransform.AbsolutePosition.X, this.FinalTransform.AbsolutePosition.Y),
                 this.m_Texture);
         }
     }

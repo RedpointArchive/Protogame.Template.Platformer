@@ -6,3 +6,5 @@ obj
 *.sln
 packages/**
 *.csproj
+.vs/
+Protogame/

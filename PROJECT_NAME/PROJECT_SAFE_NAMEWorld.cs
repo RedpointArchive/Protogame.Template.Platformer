@@ -1,4 +1,4 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ namespace {PROJECT_SAFE_NAME}
 
     using Protogame;
 
-    public class {PROJECT_SAFE_NAME}World : IWorld
+    public class PROJECT_SAFE_NAMEWorld : IWorld
     {
         private I2DRenderUtilities m_RenderUtilities;
         private IAssetManager m_AssetManager;
@@ -17,7 +17,7 @@ namespace {PROJECT_SAFE_NAME}
 
         public IList<IEntity> Entities { get; private set; }
 
-        public {PROJECT_SAFE_NAME}World(
+        public PROJECT_SAFE_NAMEWorld(
             INode worldNode,
             IHierarchy hierarchy,
             IPlatforming platforming,
@@ -53,7 +53,7 @@ namespace {PROJECT_SAFE_NAME}
             this.m_RenderUtilities.RenderText(
                 renderContext,
                 new Vector2(gameContext.Window.ClientBounds.Width / 2, 10),
-                "{PROJECT_NAME}",
+                "PROJECT_NAME",
                 this.m_AssetManager.Get<FontAsset>("font.Main"),
                 horizontalAlignment: HorizontalAlignment.Center);
             this.m_RenderUtilities.RenderText(

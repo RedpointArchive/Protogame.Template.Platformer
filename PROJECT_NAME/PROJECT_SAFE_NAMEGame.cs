@@ -1,12 +1,12 @@
-namespace {PROJECT_SAFE_NAME}
+namespace PROJECT_SAFE_NAME
 {
     using Protoinject;
 
     using Protogame;
 
-    public class {PROJECT_SAFE_NAME}Game : CoreGame<{PROJECT_SAFE_NAME}World>
+    public class PROJECT_SAFE_NAMEGame : CoreGame<PROJECT_SAFE_NAMEWorld>
     {
-        public {PROJECT_SAFE_NAME}Game(IKernel kernel)
+        public PROJECT_SAFE_NAMEGame(IKernel kernel)
             : base(kernel)
         {
             this.IsMouseVisible = true;
