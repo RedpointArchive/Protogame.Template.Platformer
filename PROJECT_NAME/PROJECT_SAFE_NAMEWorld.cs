@@ -3,37 +3,29 @@ namespace PROJECT_SAFE_NAME
     using System.Collections.Generic;
 
     using Microsoft.Xna.Framework;
-
-    using Protoinject;
-
     using Protogame;
 
     public class PROJECT_SAFE_NAMEWorld : IWorld
     {
-        private I2DRenderUtilities m_RenderUtilities;
-        private IAssetManager m_AssetManager;
-        private IProfiler m_Profiler;
-        private ILevelManager m_LevelManager;
-
-        public IList<IEntity> Entities { get; private set; }
+        private readonly I2DRenderUtilities _renderUtilities;
+        private readonly IAssetManager _assetManager;
+        private readonly IProfiler _profiler;
+        private readonly ILevelManager _levelManager;
+        private readonly IAssetReference<LevelAsset> _levelAsset;
+        private bool _hasLoadedLevel;
 
         public PROJECT_SAFE_NAMEWorld(
-            INode worldNode,
-            IHierarchy hierarchy,
-            IPlatforming platforming,
             I2DRenderUtilities renderUtilities,
-            IAssetManagerProvider assetManagerProvider,
-            IAudioUtilities audioUtilities,
+            IAssetManager assetManager,
             IProfiler profiler,
             ILevelManager levelManager)
         {
-            this.m_RenderUtilities = renderUtilities;
-            this.m_Profiler = profiler;
-            this.m_LevelManager = levelManager;
-            this.m_AssetManager = assetManagerProvider.GetAssetManager(false);
-            this.Entities = new List<IEntity>();
+            _renderUtilities = renderUtilities;
+            _profiler = profiler;
+            _levelManager = levelManager;
+            _assetManager = assetManager;
 
-            this.m_LevelManager.Load(this, "level.Level0");
+            _levelAsset = assetManager.Get<LevelAsset>("level.Level0");
         }
 
         public void Dispose()
@@ -42,7 +34,7 @@ namespace PROJECT_SAFE_NAME
 
         public void RenderBelow(IGameContext gameContext, IRenderContext renderContext)
         {
-            using (this.m_Profiler.Measure("clear"))
+            using (_profiler.Measure("clear"))
             {
                 gameContext.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
             }
@@ -50,31 +42,32 @@ namespace PROJECT_SAFE_NAME
 
         public void RenderAbove(IGameContext gameContext, IRenderContext renderContext)
         {
-            this.m_RenderUtilities.RenderText(
+            _renderUtilities.RenderText(
                 renderContext,
                 new Vector2(gameContext.Window.ClientBounds.Width / 2, 10),
                 "PROJECT_NAME",
-                this.m_AssetManager.Get<FontAsset>("font.Main"),
+                _assetManager.Get<FontAsset>("font.Main"),
                 horizontalAlignment: HorizontalAlignment.Center);
-            this.m_RenderUtilities.RenderText(
+            _renderUtilities.RenderText(
                 renderContext,
                 new Vector2(gameContext.Window.ClientBounds.Width / 2, 30),
                 gameContext.FPS + " FPS",
-                this.m_AssetManager.Get<FontAsset>("font.Main"),
+                _assetManager.Get<FontAsset>("font.Main"),
                 horizontalAlignment: HorizontalAlignment.Center);
-            this.m_RenderUtilities.RenderText(
+            _renderUtilities.RenderText(
                 renderContext,
                 new Vector2(gameContext.Window.ClientBounds.Width / 2, 50),
                 gameContext.FrameCount + " Frames",
-                this.m_AssetManager.Get<FontAsset>("font.Main"),
+                _assetManager.Get<FontAsset>("font.Main"),
                 horizontalAlignment: HorizontalAlignment.Center);
         }
 
         public void Update(IGameContext gameContext, IUpdateContext updateContext)
         {
-            using (this.m_Profiler.Measure("resize_window"))
+            if (!_hasLoadedLevel && _levelAsset.IsReady)
             {
-                gameContext.ResizeWindow(800, 600);
+                _levelManager.Load(this, _levelAsset.Asset);
+                _hasLoadedLevel = true;
             }
         }
     }

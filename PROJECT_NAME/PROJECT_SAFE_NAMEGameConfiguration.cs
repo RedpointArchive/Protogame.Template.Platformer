@@ -16,11 +16,6 @@ namespace PROJECT_SAFE_NAME
             kernel.Load<PROJECT_SAFE_NAMEModule>();
         }
 
-        public void InitializeAssetManagerProvider(IAssetManagerProviderInitializer initializer)
-        {
-            initializer.Initialize<GameAssetManagerProvider>();
-        }
-
         public Game ConstructGame(IKernel kernel)
         {
             return new PROJECT_SAFE_NAMEGame(kernel);

@@ -17,20 +17,20 @@ namespace PROJECT_SAFE_NAME
         private IAssetManager m_AssetManager;
         private I2DRenderUtilities m_RenderUtilities;
         private IAudioUtilities m_AudioUtilities;
-        private TextureAsset m_Texture;
-        private AudioAsset m_JumpSound;
+        private IAssetReference<TextureAsset> m_Texture;
+        private IAssetReference<AudioAsset> m_JumpSound;
         private IAudioHandle m_JumpHandle;
 
         public Player(
             IHierarchy hierarchy,
             IPlatforming platforming,
-            IAssetManagerProvider assetManagerProvider,
+            IAssetManager assetManager,
             I2DRenderUtilities renderUtilities,
             IAudioUtilities audioUtilities)
         {
             _hierarchy = hierarchy;
             this.m_Platforming = platforming;
-            this.m_AssetManager = assetManagerProvider.GetAssetManager();
+            this.m_AssetManager = assetManager;
             this.m_RenderUtilities = renderUtilities;
             this.m_AudioUtilities = audioUtilities;
 

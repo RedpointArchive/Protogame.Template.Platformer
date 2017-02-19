@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+
 namespace PROJECT_SAFE_NAME
 {
     using Protoinject;
@@ -15,6 +17,14 @@ namespace PROJECT_SAFE_NAME
         protected override void ConfigureRenderPipeline(IRenderPipeline pipeline, IKernel kernel)
         {
             pipeline.AddFixedRenderPass(kernel.Get<I2DBatchedRenderPass>());
+        }
+
+        protected override void PrepareGraphicsDeviceManager(GraphicsDeviceManager graphicsDeviceManager)
+        {
+            base.PrepareGraphicsDeviceManager(graphicsDeviceManager);
+
+            graphicsDeviceManager.PreferredBackBufferWidth = 800;
+            graphicsDeviceManager.PreferredBackBufferHeight = 600;
         }
     }
 }
