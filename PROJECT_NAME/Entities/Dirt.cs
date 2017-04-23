@@ -12,6 +12,7 @@ namespace PROJECT_SAFE_NAME
 
         public int TX { get; set; }
         public int TY { get; set; }
+        public bool AppliedTilesetSettings { get; set; }
         public IAssetReference<TilesetAsset> Tileset { get; set; }
 
         public Dirt(ITileUtilities tileUtilities, float x, float y, int tx, int ty)

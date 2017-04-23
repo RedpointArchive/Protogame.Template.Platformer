@@ -10,9 +10,9 @@ namespace PROJECT_SAFE_NAME
         {
             kernel.Bind<IEntityFactory>().ToFactory();
 
-            kernel.Bind<ISolidEntity>().To<Solid>();
-            kernel.Bind<ITileEntity>().To<Dirt>().Named("Dirt");
-            kernel.Bind<IEntity>().To<Spawn>().Named("Spawn");
+            kernel.Bind<ISolidEntity>().To<Solid>().AllowManyPerScope();
+            kernel.Bind<ITileEntity>().To<Dirt>().Named("Dirt").AllowManyPerScope();
+            kernel.Bind<IEntity>().To<Spawn>().Named("Spawn").AllowManyPerScope();
 
             // TODO: Define an event binder suitable for mapping mobile input to the game.
             kernel.Bind<IEventBinder<IGameContext>>().To<DesktopEventBinder>();
