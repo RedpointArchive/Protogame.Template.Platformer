@@ -16,7 +16,7 @@ namespace PROJECT_SAFE_NAME
             kernel.Load<PROJECT_SAFE_NAMEModule>();
         }
 
-        public Game ConstructGame(IKernel kernel)
+        public ICoreGame ConstructGame(IKernel kernel)
         {
             return new PROJECT_SAFE_NAMEGame(kernel);
         }

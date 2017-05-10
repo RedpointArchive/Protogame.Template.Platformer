@@ -19,7 +19,7 @@ namespace PROJECT_SAFE_NAME
             pipeline.AddFixedRenderPass(kernel.Get<I2DBatchedRenderPass>());
         }
 
-        protected override void PrepareGraphicsDeviceManager(GraphicsDeviceManager graphicsDeviceManager)
+        public override void PrepareGraphicsDeviceManager(GraphicsDeviceManager graphicsDeviceManager)
         {
             base.PrepareGraphicsDeviceManager(graphicsDeviceManager);
 
