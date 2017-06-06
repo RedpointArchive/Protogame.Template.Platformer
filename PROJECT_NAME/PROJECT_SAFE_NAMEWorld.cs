@@ -36,7 +36,7 @@ namespace PROJECT_SAFE_NAME
         {
             using (_profiler.Measure("clear"))
             {
-                gameContext.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+                renderContext.GraphicsDevice.Clear(Color.CornflowerBlue);
             }
         }
 
