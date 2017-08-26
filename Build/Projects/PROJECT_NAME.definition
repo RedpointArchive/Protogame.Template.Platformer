@@ -15,7 +15,29 @@
     <Reference Include="Protogame.EntryPoint" />
     <Reference Include="PROJECT_NAME.Content" />
   </References>
+  <Properties>
+    <FrameworkVersions>
+      <Platform Name="Windows8">
+        <Version>v4.5.1</Version>
+      </Platform>
+      <Platform Name="Android">
+        <Version>v4.4</Version>
+      </Platform>
+    </FrameworkVersions>
+  </Properties>
   <Files>
+    <AndroidResource Include="Resources\drawable\background.png">
+      <Platforms>Android,Ouya</Platforms>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\icon.png">
+      <Platforms>Android,Ouya</Platforms>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\styles.xml">
+      <Platforms>Android,Ouya</Platforms>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\values.xml">
+      <Platforms>Android,Ouya</Platforms>
+    </AndroidResource>
     <Compile Include="Entities\Dirt.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Solid.cs" />

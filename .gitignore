@@ -8,3 +8,5 @@ packages/**
 *.csproj
 .vs/
 Protogame/
+
+*.user

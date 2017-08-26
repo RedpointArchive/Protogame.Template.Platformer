@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--
+  NOTE: You may have to do a full rebuild and deploy in Visual Studio to get
+  changes to these values to take effect!
+  -->
+  
+  <!-- The game name shown in the Android application launcher -->
+  <string name="app_name">My Game</string>
+  
+  <!-- The color to use for the splash screen -->
+  <color name="splash_background">#FF0000</color>
+</resources>
